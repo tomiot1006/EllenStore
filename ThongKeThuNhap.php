@@ -9,9 +9,33 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-<title>Tất cả sản phẩm</title>
+<title></title>
 </head>
+<style type="text/css">
+.header {
+	background-color: #f1f1f1;
+}
+
+.cangiua {
+	display: block;
+	margin-left: 0;
+}
+
+.carousel-inner {
+	width: 100%;
+	height: 100%;
+}
+
+.clear { /*tách biệt content với footer tránh tình trạng dính liền*/
+	clear: both;
+}
+
+
+}
+/**/
+</style>
 <body>
+
 	
 	<div >
 		<div class="header">
@@ -26,7 +50,7 @@
     	</div>
 	</div>
         <!-- begin Menu top-->
-          <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" id="menutop">
+         <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" id="menutop">
           <a class="navbar-brand" href="#">Ellen</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
    			 <span class="navbar-toggler-icon"></span>
@@ -86,171 +110,136 @@
 						<div class="row">
 							<div class="col-md-12 col-lg-12" id="menuleft">
 							
-								<button class="dropbtn">
-									DANH MỤC SẢN PHẨM</button>
+								<button class="dropbtn">QUẢN TRỊ</button>
 								<ul>
-									<li><a href="#">Áo</a></li>
-									<li><a href="#">Quần</a></li>
-									<li><a href="#">Váy</a></li>
-									<li><a href="#">Set</a></li>
-									<li><a href="#">
-										<!--<i class="fa fa-caret-right" aria-hidden="true"></i>-->
+									<li><a href="#">Tài khoản</a></li>
+									<li><a href="#">Bài viết</a></li>
+									<li><a href="#">Category</a></li>
+									<li><a href="#">Product</a></li>
+									<li><a href="#">Thống kê thu nhập</a></li>
+									<li><a href="#">Hóa đơn</a></li>
+									<li><a href="#">Chi tiết hóa đơn</a></li>
+									<!--<li><a href="#">
+										<i class="fa fa-caret-right" aria-hidden="true"></i>
 										Thời trang dạo phố</a>
 										
-										<!--<ul class="sub-menu">
+										<ul class="sub-menu">
 											<li><a href="#">Áo1aaaaaa</a></li>
 											<li><a href="#">Áo2aaaaaa</a></li>
-										</ul>-->
+										</ul>
 										
 									</li>
 									<li><a href="#">
-										<!--<i class="fa fa-caret-right" aria-hidden="true"></i>-->
+										<i class="fa fa-caret-right" aria-hidden="true"></i>
 										Thời trang dạ tiệc</a>
 										
-										<!--<ul class="sub-menu">
+										<ul class="sub-menu">
 											<li><a href="#">Áo1aaaaaa</a></li>
 											<li><a href="#">Áo2aaaaaa</a></li>
-										</ul>-->
+										</ul>
 										
-									</li>
+									</li>-->
 								</ul>
 				
 							</div>
 						</div>
 					</div><!--end menu left-->
-					
 					<div class="col-md-8 col-lg-8" id="center">
-						<div class="row"><!--Begin banner-->
-							<div class="col-md-12 col-lg-12" id="search-box">
-							<div class="row"> 
-								<div class="col-md-12 col-lg-12">
-									<h4>Tìm kiếm nâng cao</h4>
-								</div>
-							</div>
-							<div class="row"><!--Begin danh mục-->
-								<div class="col-md-3 col-lg-3">
-									<div class="form-group">
-										<label class="font-weight-bold">Danh mục</label>
-										<select class="form-control">
-											<option>Áo</option>
-											<option>Quần</option>
-										</select>
-									</div>
-								</div><!--End danh muc-->
-								<div class="col-md-3 col-lg-3"><!--Begin Gia-->
-									<div class="form-group">
-										<label class="font-weight-bold">Giá</label>
-										<select class="form-control">
-											<option>Dưới 400k</option>
-											<option>400k-600k</option>
-											<option>600k-1tr</option>
-											<option>Trên 1tr</option>
-										</select>
-									</div>
-								</div><!--End gia-->
-								<div class="col-md-3 col-lg-3"><!--Begin Sap xep-->
-									<div class="form-group">
-										<label class="font-weight-bold">Sắp xếp</label>
-										<select class="form-control">
-											<option>Mới nhất</option>
-											<option>Giảm giá</option>
-											<option>Mua nhiều</option>
-											<option>Nổi bật</option>
-										</select>
-									</div>
-								</div><!--End sapxep-->
-								
-							</div>
-							
-							
-								
-							</div>
-						</div><!--End banner-->
 						
-						
-						<div class="row sanpham" ><!--Begin san pham moi-->
-							<div class="col-md-12 col-lg-12">
-								<div  id="heading">
-									<h2 id="title-head">
-										<a href="#">Sản phẩm</a>
-									</h2>
-									
-									
-								</div>
-								
+							<div class="col-xs-12 col-md-12 col-lg-12">
+
+					<div class="row" style="margin-top: 20px;">
+						<!-- header table và ô search Cell -->
+						<div class="col-md-4 col-lg-4">
+							<h3>Thu nhập</h3>
+							<br></br>
+						</div>
+						<!-- Kết thúc header table và ô search Cell -->
+					</div>
+
+					<div class="clear"></div>
+
+					<div class="col-md-12 col-lg-12">
+						<div class="row">
+							<div class="col-md-6 col-lg-6">
+								<!-- Target currency -->
 								<div class="row">
-							  
-								  <div class="column">
-									<div class="card">
-									  <img src="imags/product1.jpg" alt="Jane" style="width:100%">
-									  <div class="container">
-										<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price"></h6>
-											
-										<p><button class="button" type="submit">Mua</button></p>
-									  </div>
+									<div class=" col-md-4 col-lg-4">
+										<h4>Target:</h4>
 									</div>
-								  </div>
-
-								  <div class="column">
-									<div class="card">
-									  <img src="imags/product5.jpg" alt="Mike" style="width:100%">
-									  <div class="container">
-										<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-										<p><button class="button" type="submit">Mua</button></p>
-									  </div>
+									<div style="float: right;" class=" col-md-6 col-lg-6">
+										<div class="input-group">
+											<span class="input-group-addon">$</span> <input type="number"
+												placeholder="1000000" min="1000000" step="1000000"
+												data-number-to-fixed="5" data-number-stepfactor="1000000"
+												class="form-control currency" id="c2" />
+										</div>
 									</div>
-								  </div>
-
-								  <div class="column">
-									<div class="card">
-									  <img src="imags/product2.jpg" alt="John" style="width:100%">
-									  <div class="container">
-										<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-										<p><button class="button" type="submit">Mua</button></p>
-									  </div>
+									<div class="btn-group col-md-2 col-lg-2">
+										<button class="btn btn-success">
+											<i class="fa fa-money" aria-hidden="true"></i>
+										</button>
 									</div>
-								  </div>
-								  
-								    <div class="column">
-									<div class="card">
-									  <img src="imags/product2.jpg" alt="John" style="width:100%">
-									  <div class="container">
-										<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-										<p><button class="button" type="submit">Mua</button></p>
-									  </div>
-									</div>
-								  </div>
-						
 								</div>
-								<hr>
-								 <!--<div class="row">
-								  	<div class="col-md-12 col-lg-12">
-								  		<div class="pagination">
-										  <a href="#">Xem thêm>></a>
-										  
+								<!-- kết thúc Target currency -->
+								<div class="clear">
+									<br></br>
+								</div>
+								<div class="row">
+									<div class=" col-md-4 col-lg-4">
+										<h4>Chi:</h4>
 									</div>
-								  	</div>
-								  </div>-->
-								 <ul class="pagination">
-									<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item" style="margin-left: 10px;"><a class="page-link" href="#">Next</a></li>
-								  </ul>	
-								
+									<div style="float: right;" class=" col-md-6 col-lg-6">
+										<div class="input-group">
+											<span class="input-group-addon">$</span> <input type="number"
+												placeholder="$" min="0" step="100000"
+												data-number-stepfactor="100000" class="form-control currency"
+												id="c2" />
+										</div>
+									</div>
+									<div class="btn-group col-md-2 col-lg-2">
+										<button class="btn btn-success">
+											<i class="fa fa-minus" aria-hidden="true"></i>
+										</button>
+									</div>
+								</div>
+								<div class="clear">
+									<br></br>
+								</div>
+								<div class="row">
+									<div class=" col-md-4 col-lg-4">
+										<h4>Thu:</h4>
+									</div>
+									<div style="float: right;" class=" col-md-6 col-lg-6">
+										<div class="input-group">
+											<span class="input-group-addon">$</span> <input type="number"
+												placeholder="$" min="0" step="100000"
+												data-number-to-fixed="5" data-number-stepfactor="100000"
+												class="form-control currency" id="c2" />
+										</div>
+									</div>
+									<div class="btn-group col-md-2 col-lg-2">
+										<button class="btn btn-success">
+											<i class="fa fa-plus" aria-hidden="true"></i>
+										</button>
+									</div>
+								</div>
 							</div>
-						</div><!--End san pham moi-->
+							<div class="col-md-6 col-lg-6">
+								<div id="piechart"></div>
+							</div>
 
+
+							<div></div>
+						</div>
+
+
+					</div>
+
+
+				</div>
+					
+						
 					</div>
 					<div class="col-md-2 col-lg-2"></div>
 				</div>
@@ -369,6 +358,34 @@
     	</footer>
 
 
+<script type="text/javascript"
+		src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+		// Load google charts
+		google.charts.load('current', {
+			'packages' : [ 'corechart' ]
+		});
+		google.charts.setOnLoadCallback(drawChart);
+
+		// Draw the chart and set the chart values
+		function drawChart() {
+			var data = google.visualization.arrayToDataTable([
+					[ 'Type', 'Currency' ], [ 'Thu', 2000000 ],
+					[ 'Chi', 8000000 ] ]);
+
+			// Optional; add a title and set the width and height of the chart
+			var options = {
+				'title' : 'Biểu đồ THU/CHI',
+				'width' : 550,
+				'height' : 400
+			};
+
+			// Display the chart inside the <div> element with id="piechart"
+			var chart = new google.visualization.PieChart(document
+					.getElementById('piechart'));
+			chart.draw(data, options);
+		}
+	</script>
  
  
 </body>

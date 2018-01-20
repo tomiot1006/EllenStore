@@ -38,61 +38,6 @@
 .formsearch{
 	float: right;
 }
-
-#menutop > a{
-	font-size: 26px;
-}
-#menutop > a:hover{
-		color: #B5E366
-	}
-#menutop ul{
-	list-style-type: none;
-	text-align: center;
-}
-
-#menutop ul li{
-	display: inline;
-	height: 40px;
-    line-height: 24px;
-	position: relative;
-}
-
-#menutop ul li a{
-	text-decoration: none;
-	display: block;
-	font-size: 18px;
-	color: #9DA1A2;
-}
-#menutop ul li a:hover{
-	background-color: #CCCCCC;
-	color: black;
-}
-#menutop ul li >.sub-menu-top{
-	display: none;
-	position: absolute;
-	background-color: #343a40;
-	width: 210px;
-    top: 53px;
-    left: 5px;
-	border-radius: 4px;
-	
-}
-#menutop ul li >.sub-menu-top li{
-	height: 45px;
-    line-height: 45px;
-    
-    
-    text-align: left;  
-}
-
-#menutop ul li >.sub-menu-top li a{
-	border-bottom: 1px solid #464646;
-	
-}
-
-#menutop ul li:hover .sub-menu-top{
-	display: block;
-}
 /*Begin menuletf*/
 
 #left #menuleft{
@@ -113,7 +58,7 @@
 }
 #left #menuleft ul li {
 	width: auto;
-	height: 41px;
+	height: auto;
 	line-height:41px;
 	border-bottom: 1px solid #464646;
 	padding: 0 1em;
@@ -148,44 +93,25 @@
 
 
 
-@media (max-width: 1260px){
+/*@media (max-width: 1280px){
 	#left #menuleft{
 		display: none;
 	}
-}
+}*/
+
 
 @media (max-width: 575px){
 	#menutop > a{
-	margin-left: auto;
+	text-align: center;
+    margin-left: auto;
     margin-right: auto;
     height: 60px;
     line-height: 46px;
     display: block;
     font-size: 45px;
-    padding-left: 13%;
 	}
 	#menutop > a:hover{
 		color: #B5E366
-	}
-	
-	#menutop ul li{
-		width: 100%;
-
-	}
-	#menutop ul li >.sub-menu-top{
-		display: block;
-		width: 50%;
-		z-index: 50;
-		margin: 0 25%;
-	}
-	#menutop ul li >.sub-menu-top li a{
-	
-	text-align: center;
-	}
-}
-@media (min-width: 575px){
-	#menutop ul li >.sub-menu-top li a{
-	padding-left: 16px;
 	}
 }
 

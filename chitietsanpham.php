@@ -26,29 +26,34 @@
     	</div>
 	</div>
         <!-- begin Menu top-->
-         <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" id="menutop">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" id="menutop">
           <a class="navbar-brand" href="#">Ellen</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
    			 <span class="navbar-toggler-icon"></span>
          </button>
           <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          
           <ul class="navbar-nav">
-            <li class="nav-item ">
-			  <a class="nav-link " href="#" >Thời Trang<i style="margin-left: 2px;" class="fa fa-angle-down" aria-hidden="true"></i></a>
-			  	<ul class=" sub-menu-top">
-			  		<li ><a  href="#" >Áo</a></li>
-			  		<li ><a  href="#" >Quần</a></li>
-			  		<li ><a  href="#" >Set</a></li>
-			  		<li ><a  href="#" >Thời trang dạo phố</a></li>
-			  		<li ><a  href="#" >Thời trang mùa hè</a></li>
-			  	</ul>
+            <li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+				Thời Trang
+			  </a>
+			  <div class="dropdown-menu">
+				<a class="dropdown-item" href="#">Áo</a>
+				<a class="dropdown-item" href="#">Quần</a>
+				<a class="dropdown-item" href="#">Váy</a>
+				<a class="dropdown-item" href="#">Set</a>
+				<a class="dropdown-item" href="#">Thời trang dạo phố</a>
+				<a class="dropdown-item" href="#">Thời trang dạ tiệc</a>
+			  </div>
 			</li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Liên hệ</a>
+			  <li class="nav-item">
+              <a class="nav-link" href="#">Mặc đẹp</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">Sự kiện</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="#">Liên hệ</a>
             </li>
             <li class="nav-item">
                <div >
@@ -77,7 +82,46 @@
         <div class="container-fluid"><br>
 			<div id="main">
 				<div class="row">
-					<div class="col-sm-2 col-md-2 col-lg-2"></div>
+					<div class="col-md-2 col-lg-2" id="left"><!--begin menu left-->
+						<div class="row">
+							<div class="col-md-12 col-lg-12" id="menuleft">
+							
+								<button class="dropbtn">
+									DANH MỤC SẢN PHẨM</button>
+								<ul>
+									<li><a href="#">Áo</a></li>
+									<li><a href="#">Quần</a></li>
+									<li><a href="#">Váy</a></li>
+									<li><a href="#">Set</a></li>
+									<li><a href="#">
+<!--										<i class="fa fa-caret-right" aria-hidden="true"></i>-->
+										Thời trang dạo phố</a>
+										
+<!--
+										<ul class="sub-menu">
+											<li><a href="#">Áo1aaaaaa</a></li>
+											<li><a href="#">Áo2aaaaaa</a></li>
+										</ul>
+-->
+										
+									</li>
+									<li><a href="#">
+<!--										<i class="fa fa-caret-right" aria-hidden="true"></i>-->
+										Thời trang dạ tiệc</a>
+										
+<!--
+										<ul class="sub-menu">
+											<li><a href="#">Áo1aaaaaa</a></li>
+											<li><a href="#">Áo2aaaaaa</a></li>
+										</ul>
+-->
+										
+									</li>
+								</ul>
+				
+							</div>
+						</div>
+					</div><!--end menu left-->
 					<div class="col-sm-8 col-md-8 col-lg-8" id="center"><!--Begin center-->
 						<div class="row">
 							<div class="col-sm-12 col-md-12 col-lg-12">

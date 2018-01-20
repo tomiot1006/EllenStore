@@ -26,7 +26,7 @@
     	</div>
 	</div>
         <!-- begin Menu top-->
-         <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" id="menutop">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top" id="menutop">
           <a class="navbar-brand" href="#">Ellen</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
    			 <span class="navbar-toggler-icon"></span>
@@ -87,34 +87,32 @@
 							<div class="col-md-12 col-lg-12" id="menuleft">
 							
 								<button class="dropbtn">
-									DANH MỤC SẢN PHẨM</button>
+									<i class="fa fa-bars" aria-hidden="true"
+									style="margin-right: 4px;margin-left: -8px;"
+								></i>DANH MỤC SẢN PHẨM</button>
 								<ul>
 									<li><a href="#">Áo</a></li>
 									<li><a href="#">Quần</a></li>
 									<li><a href="#">Váy</a></li>
 									<li><a href="#">Set</a></li>
 									<li><a href="#">
-<!--										<i class="fa fa-caret-right" aria-hidden="true"></i>-->
+										<i class="fa fa-caret-right" aria-hidden="true"></i>
 										Thời trang dạo phố</a>
 										
-<!--
 										<ul class="sub-menu">
 											<li><a href="#">Áo1aaaaaa</a></li>
 											<li><a href="#">Áo2aaaaaa</a></li>
 										</ul>
--->
 										
 									</li>
 									<li><a href="#">
-<!--										<i class="fa fa-caret-right" aria-hidden="true"></i>-->
+										<i class="fa fa-caret-right" aria-hidden="true"></i>
 										Thời trang dạ tiệc</a>
 										
-<!--
 										<ul class="sub-menu">
 											<li><a href="#">Áo1aaaaaa</a></li>
 											<li><a href="#">Áo2aaaaaa</a></li>
 										</ul>
--->
 										
 									</li>
 								</ul>
@@ -451,20 +449,16 @@
     			<div class="row">
     				<div class="col-md-4 col-lg-4 widget-item" id="about">
     					<a href="#">Logo</a>
-    					<ul>
-    						<li>
-    							<i class="fa fa-map-marker" aria-hidden="true" style="font-size: 20px;text-indent: 4px;"></i>
-    							135/13A,Tăng Nhơn Phú B,Tp.Hồ Chí Minh
-    						</li>
-    						<li>
-    							<i class="fa fa-phone" aria-hidden="true" style="font-size: 20px; text-indent: 3px;"></i>
-    							01659548682
-    						</li>
-    						<li>
-    							<i class="fa fa-envelope" aria-hidden="true" style="font-size: 20px;"></i>
-    							tvtri1997@gmail.com
-    						</li>
-    					</ul>
+					<ul>
+						<li><a href="https://goo.gl/maps/qJJSu9WHXN92" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"
+							style="font-size: 20px; text-indent: 4px;"></i> Điền địa chỉ vô đây</a></li>
+						<li><i class="fa fa-phone" aria-hidden="true"
+							style="font-size: 20px; text-indent: 3px;"></i> SDT nữa</li>
+						<li><i class="fa fa-envelope" aria-hidden="true"
+							style="font-size: 20px;"></i> Gmail thì ở đây</li>
+						<li><a href="https://www.facebook.com/uyenellen" target="_blank"><i class="fa fa-facebook" aria-hidden="true"
+							style="font-size: 20px;"></i> Facebook thì ở đây</a></li>
+					</ul>
     				</div>
     				<div class="col-md-2 col-lg-2 widget-item">
     					<h4 class="widget-title">Tài khoản</h4>
