@@ -131,7 +131,7 @@
 						</div>
 						<hr style="border: 1px solid #676666">
 						<div class="row">
-							<div class="col-sm-4 col-md-4 col-lg-4"><!--Begin Hinh mau-->
+							<div class="col-sm-5 col-md-5 col-lg-5"><!--Begin Hinh mau-->
 								
 									 
 									<div class="card">
@@ -176,32 +176,55 @@
 								
 							</div><!--End hình mau-->
 							<div class="col-sm-6 col-md-6 col-lg-6">
+							
 								<div class="row">
 									<div class="col-sm-12 col-md-12 col-lg-12">
 										<h4>Váy đỏ quyến rủ</h4>
 										<span class="sale">250.000đ</span>
 										<span class="price">250.000đđ</span><br>
 										
-										<p>
+										<p style="text-align: justify;">
 											Phong cách thời trang nam giới nói riêng luôn có sự thay đổi theo thời gian. Tuy nhiên, những trang phục thuộc diện thì vẫn có được chỗ đứng cho mình trong lòng công chúng. Món đồ mà chúng tôi đang muốn nói đến ở đây là áo sơmi trắng....
 										</p>
 										<hr>
-										<br>
-									
-										<form><!--So luong san pham-->
+										</div>
+								</div>
+										
+								<div class="row">
+									<div class="col-sm-12 col-md-12 col-lg-12">
+										<form ><!--So luong san pham-->
 											<label>Sô lượng:</label>
-											<input type="number" value="1" max="69" min="0" id="number" name="number"
-											 style="text-align: center;width: 100px;height: 45px;"></input>	
+											<input class="form-control" type="number" value="1" max="69" min="0" id="number" name="number"
+											 style="text-align: center;"></input>	
+											 <lable>Size:</lable>
+												<select class="form-control" >
+													<option>S</option>
+													<option>M</option>
+													<option>L</option>
+													<option>XL</option>
+													<option>XXL</option>
+												</select>
+											<lable>Màu:</lable>
+												<select class="form-control">
+													<option>Đỏ</option>
+													<option>Đen</option>
+													
+												</select>
+												
 											 <button class="btn btn-warning" 
-   											style="height: 45px;margin-top: -6px;" type="submit">
+   											type="submit" style="    margin-top: 20px;">
    											<i class="fa fa-cart-arrow-down" aria-hidden="true"
    												style="font-size: 22px;margin-right: 6px;"
    											></i>Thêm vào giỏ hàng</button>
 										</form>
 									</div>
-
+									
 								</div>
-							</div>
+									<hr>
+										
+						</div>
+
+							
 						</div>
 						<br>
 						<div class="tab">
@@ -224,7 +247,8 @@
 							 
 							  <p>Đánh giá chi tiết</p>
 							</div>
-							<br>
+							<hr>
+						
 							<div class="row sanpham" ><!--Begin san pham lien quan-->
 							<div class="col-sm-12 col-md-12 col-lg-12">
 								<div  id="heading">
