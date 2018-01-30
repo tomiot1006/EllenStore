@@ -16,6 +16,7 @@
 <body>
 
 	<?php
+	include( "modules/config.php" );
 	#header: log in + log out + image home page
 	include( "modules/header.php" );
 
@@ -70,10 +71,13 @@
 										<span class="carousel-control-prev-icon"></span>
 									  </a>
 							
+
+
 								<a class="carousel-control-next" href="#demo" data-slide="next">
 										<span class="carousel-control-next-icon"></span>
 									  </a>
 							
+
 							</div>
 						</div>
 					</div>
@@ -89,54 +93,48 @@
 									</h2>
 							
 
-
 							</div>
 
 							<div class="row">
-
+								<?php
+								$sql_sp_moi = "SELECT DISTINCT iddanhmuc, idsp, tensanpham,giasp,giamgia,size,mausac,hinhanh,video,chitiet,ngaynhap FROM sanpham where DATEDIFF(CURDATE(),ngaynhap) <=30 ORDER BY RAND() LIMIT 3";
+								$query = mysqli_query( $conn, $sql_sp_moi )or die( mysqli_error() );;
+								?>
+								<?php
+								while ( $dong_sp = mysqli_fetch_array( $query ) ) {
+									?>
 								<div class="column">
 									<div class="card">
-										<img src="imags/product1.jpg" alt="Jane" style="width:100%">
-										<div class="container">
-											<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price"></h6>
+										<a href="chitietsanpham.php?id=<?php echo $dong_sp[ 'idsp' ]?>">
+											<img  src="uploads/<?php echo $dong_sp['hinhanh'] ?>"  style="width:100%;"></img>
+										</a>
+									
 
-											<p><button class="button" type="submit">Mua</button>
+										<div class="container">
+											<h6 style="text-align: center;margin-top: 5px;">
+											<a href="chitietsanpham.php?id=<?php echo $dong_sp[ 'idsp' ]?>" 
+										style="color: #252525;text-decoration: none;"><?php echo $dong_sp["tensanpham"]?></a></h6>
+										
+											<?php
+											if ( is_null( $dong_sp[ 'giamgia' ] ) ) {
+												echo "<h6 id='price'></h6>";
+												echo "<h6 id='sale'>" . $dong_sp[ 'giasp' ] . ".000đ</h6>";
+
+											} else {
+												echo "<h6 id='price'>" . $dong_sp[ 'giasp' ] . ".000đ</h6>";
+												echo "<h6 id='sale'>" . round( $dong_sp[ 'giasp' ] * ( $dong_sp[ 'giamgia' ] / 100 ) ) . ".000đ</h6>";
+
+											}
+											?>
+											<p>
+												<a href="chitietsanpham.php?id=<?php echo $dong_sp[ 'idsp' ]?>"><button class="button" type="submit">Mua</button></a>
 											</p>
 										</div>
 									</div>
 								</div>
-
-								<div class="column">
-									<div class="card">
-										<img src="imags/product5.jpg" alt="Mike" style="width:100%">
-										<div class="container">
-											<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-											<p><button class="button" type="submit">Mua</button>
-											</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="column">
-									<div class="card">
-										<img src="imags/product2.jpg" alt="John" style="width:100%">
-										<div class="container">
-											<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-											<p><button class="button" type="submit">Mua</button>
-											</p>
-										</div>
-									</div>
-								</div>
-
+								<?php
+								}
+								?>
 							</div>
 
 							<div class="row">
@@ -158,59 +156,52 @@
 						<!--Begin san pham khuyen mai-->
 						<div class="col-md-12 col-lg-12">
 							<div id="heading">
-
 								<h2 id="title-head">
 										<a href="#">Sản phẩm khuyến mãi</a>
 									</h2>
 							
-
-
 							</div>
 
 							<div class="row">
 
+								<?php
+								$sql_sp_khuyenmai = "SELECT DISTINCT iddanhmuc, idsp, tensanpham,giasp,giamgia,size,mausac,hinhanh,video,chitiet,ngaynhap FROM sanpham where giamgia is NOT NULL ORDER BY RAND() LIMIT 3";
+								$query = mysqli_query( $conn, $sql_sp_khuyenmai )or die( mysqli_error() );
+								?>
+								<?php
+								while ( $dong_sp = mysqli_fetch_array( $query ) ) {
+									?>
 								<div class="column">
 									<div class="card">
-										<img src="imags/product1.jpg" alt="Jane" style="width:100%">
+										<a href="chitietsanpham.php?id=<?php echo $dong_sp[ 'idsp' ]?>">
+											<img  src="uploads/<?php echo $dong_sp['hinhanh'] ?>"  style="width:100%;"></img>
+										</a>
+									
 										<div class="container">
-											<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price"></h6>
+											<h6 style="text-align: center;margin-top: 5px;">
+											<a href="chitietsanpham.php?id=<?php echo $dong_sp[ 'idsp' ]?>" 
+										style="color: #252525;text-decoration: none;"><?php echo $dong_sp["tensanpham"]?></a></h6>
+										
+											<?php
+											if ( is_null( $dong_sp[ 'giamgia' ] ) ) {
+												echo "<h6 id='price'></h6>";
+												echo "<h6 id='sale'>" . $dong_sp[ 'giasp' ] . ".000đ</h6>";
 
-											<p><button class="button" type="submit">Mua</button>
+											} else {
+												echo "<h6 id='price'>" . $dong_sp[ 'giasp' ] . ".000đ</h6>";
+												echo "<h6 id='sale'>" . round( $dong_sp[ 'giasp' ] * ( $dong_sp[ 'giamgia' ] / 100 ) ) . ".000đ</h6>";
+
+											}
+											?>
+											<p>
+												<a href="chitietsanpham.php?id=<?php echo $dong_sp[ 'idsp' ]?>"><button class="button" type="submit">Mua</button></a>
 											</p>
 										</div>
 									</div>
 								</div>
-
-								<div class="column">
-									<div class="card">
-										<img src="imags/product5.jpg" alt="Mike" style="width:100%">
-										<div class="container">
-											<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-											<p><button class="button" type="submit">Mua</button>
-											</p>
-										</div>
-									</div>
-								</div>
-
-								<div class="column">
-									<div class="card">
-										<img src="imags/product2.jpg" alt="John" style="width:100%">
-										<div class="container">
-											<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-											<p><button class="button" type="submit">Mua</button>
-											</p>
-										</div>
-									</div>
-								</div>
+								<?php
+								}
+								?>
 							</div>
 
 							<div class="row">
@@ -244,52 +235,48 @@
 										<a href="#">Sản phẩm nổi bật</a>
 									</h2>
 							
-
-
 							</div>
 
 							<div class="row">
+								<?php
+								$sql_sp_noibat = "SELECT * FROM sanpham ORDER BY RAND() LIMIT 3";
+								$query = mysqli_query( $conn, $sql_sp_noibat )or die( mysqli_error() );;
+								?>
+								<?php
+								while ( $dong_sp = mysqli_fetch_array( $query ) ) {
+									?>
 								<div class="column">
 									<div class="card">
-										<img src="imags/product1.jpg" alt="Jane" style="width:100%">
+										<a href="chitietsanpham.php?id=<?php echo $dong_sp[ 'idsp' ]?>">
+											<img  src="uploads/<?php echo $dong_sp['hinhanh'] ?>"  style="width:100%;"></img>
+										</a>
+									
 										<div class="container">
-											<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-											<p><button class="button" type="submit">Mua</button>
-											</p>
-										</div>
-									</div>
-								</div>
+											<h6 style="text-align: center;margin-top: 5px;">
+											<a href="chitietsanpham.php?id=<?php echo $dong_sp[ 'idsp' ]?>" 
+										style="color: #252525;text-decoration: none;"><?php echo $dong_sp["tensanpham"]?></a></h6>
+										
 
-								<div class="column">
-									<div class="card">
-										<img src="imags/product5.jpg" alt="Mike" style="width:100%">
-										<div class="container">
-											<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-											<p><button class="button" type="submit">Mua</button>
-											</p>
-										</div>
-									</div>
-								</div>
+											<?php
+											if ( is_null( $dong_sp[ 'giamgia' ] ) ) {
+												echo "<h6 id='price'></h6>";
+												echo "<h6 id='sale'>" . $dong_sp[ 'giasp' ] . ".000đ</h6>";
 
-								<div class="column">
-									<div class="card">
-										<img src="imags/product2.jpg" alt="John" style="width:100%">
-										<div class="container">
-											<h5 style="text-align: center;"><a href="#" 
-										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-											<p><button class="button" type="submit">Mua</button>
+											} else {
+												echo "<h6 id='price'>" . $dong_sp[ 'giasp' ] . ".000đ</h6>";
+												echo "<h6 id='sale'>" . round( $dong_sp[ 'giasp' ] * ( $dong_sp[ 'giamgia' ] / 100 ) ) . ".000đ</h6>";
+
+											}
+											?>
+											<p>
+												<a href="chitietsanpham.php?id=<?php echo $dong_sp[ 'idsp' ]?>"><button class="button" type="submit">Mua</button></a>
 											</p>
 										</div>
 									</div>
 								</div>
+								<?php
+								}
+								?>
 							</div>
 
 							<div class="row">
@@ -307,22 +294,19 @@
 					<!--End san pham nổi bật-->
 					<hr>
 
-					<div class="row sanpham">
-						<!--Begin san pham mua nhieu-->
-						<div class="col-md-12 col-lg-12">
+					<!--<div class="row sanpham">-->
+					<!--Begin san pham mua nhieu-->
+					<!--<div class="col-md-12 col-lg-12">
 							<div id="heading">
 								<h2 id="title-head">
 										<a href="#">Sản phẩm mua nhiều</a>
 									</h2>
-							
-
-
 							</div>
 
 							<div class="row">
 								<div class="column">
 									<div class="card">
-										<img src="imags/product1.jpg" alt="Jane" style="width:100%">
+										<img src="imags/product1.jpg"  style="width:100%">
 										<div class="container">
 											<h5 style="text-align: center;"><a href="#" 
 										style="color: #252525;text-decoration: none;">Jane Doe</a></h5>
@@ -374,7 +358,7 @@
 
 						</div>
 
-					</div>
+					</div>-->
 					<!--End san pham mua nhieu-->
 
 				</div>

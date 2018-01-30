@@ -18,6 +18,7 @@
 
 	<?php
 	#header: log in + log out + image home page
+	include( "modules/config.php" );
 	include( "modules/header.php" );
 
 	#menu nav bar
@@ -31,16 +32,20 @@
 			<div class="row">
 				<?php
 				include( "modules/menuleft.php" );
-
-
-
 				?>
+				<?php
 
+				$sql_chitiet_sp = "select * from sanpham where idsp='$_GET[id]'";
+				$query1 = $conn->query( $sql_chitiet_sp );
+				$chitiet_sp = $query1->fetch_assoc();
+				?>
 				<div class="col-sm-8 col-md-8 col-lg-8" id="center">
 					<!--Begin center-->
 					<div class="row">
 						<div class="col-sm-12 col-md-12 col-lg-12">
-							<h4>Váy đỏ quyến rủ</h4>
+							<h4>
+								<?php echo $chitiet_sp['tensanpham']?>
+							</h4>
 						</div>
 
 					</div>
@@ -51,7 +56,7 @@
 
 
 							<div class="card">
-								<img src="imags/product2.jpg" alt="Jane" style="width: 100%; height: 100%;">
+								<img src="uploads/<?php echo $chitiet_sp['hinhanh']?>" style="width: 100%; height: 100%;">
 								<div class="container"></div>
 							</div>
 							<div id="video">
@@ -61,6 +66,9 @@
 											more
 										</button>
 							
+
+
+
 
 								<!-- The Modal -->
 								<div class="modal fade" id="myModal">
@@ -75,7 +83,7 @@
 
 											<!-- Modal body -->
 											<div class="modal-body">
-												<iframe width="100%" height="450" src="https://www.youtube.com/embed/psuRGfAaju4" allowfullscreen> </iframe>
+												<iframe width="100%" height="450" src="<?php echo $chitiet_sp['video']?>" allowfullscreen> </iframe>
 											</div>
 
 											<!-- Modal footer -->
@@ -96,14 +104,27 @@
 
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-12">
-									<h4>Váy đỏ quyến rủ</h4>
-									<span class="sale">250.000đ</span> <span class="price">250.000đđ</span><br>
+									<h4>
+										<?php echo $chitiet_sp['tensanpham']?>
+									</h4>
+									<?php
+									if ( is_null( $chitiet_sp[ 'giamgia' ] ) ) {
+										echo "<span class='sale'>" . $chitiet_sp[ 'giasp' ] . ".000đ</span> <span class='price'></span><br>";
+									} else {
+										echo "<span class='sale'>" . round( $chitiet_sp[ 'giasp' ] * ( $chitiet_sp[ 'giamgia' ] / 100 ) ) . ".000đ</span> <span class='price''>" . $chitiet_sp[ 'giasp' ] . ".000đ</span><br>";
+									}
 
-									<p style="text-align: justify;">Phong cách thời trang nam giới nói riêng luôn có sự thay đổi theo thời gian. Tuy nhiên, những trang phục thuộc diện thì vẫn có được chỗ đứng cho mình trong lòng công chúng. Món đồ mà chúng tôi đang muốn nói đến ở đây là áo sơmi trắng....</p>
+									?>
+
+
+
 									<hr>
 								</div>
 							</div>
-
+							<?php
+							/*			$sql_Size = "SELECT * FROM sanpham ORDER BY RAND() LIMIT 3";
+										$query = mysqli_query( $conn, $sql_sp_noibat )or die( mysqli_error() );*/
+							?>
 							<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-12">
 									<form>
@@ -130,6 +151,7 @@
 													giỏ hàng
 												</button>
 									
+
 									</form>
 								</div>
 
@@ -143,25 +165,24 @@
 					<div class="tab">
 						<button class="tablinks" onclick="openCity(event, 'London')">Thông
 										tin sản phẩm</button>
-						<button class="tablinks" onclick="openCity(event, 'Paris')">Hướng
-										dẫn mua hàng</button>
+
 						<button class="tablinks" onclick="openCity(event, 'Tokyo')">Đánh
 										giá chi tiết</button>
 					</div>
 
 					<div id="London" class="tabcontent">
 
-						<p>Thông tin sản phẩm</p>
+						<p>
+							<?php /*echo $chitiet_sp['thongtin_sp']*/?>
+						</p>
 					</div>
 
-					<div id="Paris" class="tabcontent">
-
-						<p>Hướng dẫn mua hàng</p>
-					</div>
 
 					<div id="Tokyo" class="tabcontent">
 
-						<p>Đánh giá chi tiết</p>
+						<p>
+							<?php /*echo $chitiet_sp['danhgia']*/?>
+						</p>
 					</div>
 					<hr>
 
@@ -170,79 +191,79 @@
 						<div class="col-sm-12 col-md-12 col-lg-12">
 							<div id="heading">
 								<h2 id="title-head">
-													<a href="#">Sản phẩm liên quan</a>
-												</h2>
+									<a href="#">Sản phẩm liên quan</a>
+								</h2>
 							
+
 							</div>
 
 							<div class="row">
+								<?php
+								$sql_sp_lienquan = "SELECT * FROM sanpham WHERE iddanhmuc =" . $chitiet_sp[ 'iddanhmuc' ] . " and idsp <> " . $chitiet_sp[ 'idsp' ] . " ORDER BY RAND() LIMIT 3";
+								$query2 = $conn->query( $sql_sp_lienquan );
+
+								?>
+								<?php 
+									if ($query2->num_rows > 0) {
+    
+											while($dong_sanpham = $query2->fetch_assoc()) {
+								?>
 
 								<div class="column">
 									<div class="card">
-										<img src="imags/product1.jpg" alt="Jane" style="width: 100%">
+										<a href="chitietsanpham.php?id=<?php echo $dong_sanpham[ 'idsp' ]?>">
+											<img  src="uploads/<?php echo $dong_sanpham['hinhanh'] ?>"  style="width:100%;"></img>
+										</a>
 										<div class="container">
-											<h5 style="text-align: center;">
-																	<a href="#"
-																		style="color: #252525; text-decoration: none;">Jane
-																		Doe</a>
-																</h5>
+											<h6 style="text-align: center;margin-top: 5px;">
+											<a href="chitietsanpham.php?id=<?php echo $dong_sanpham[ 'idsp' ]?>" 
+										style="color: #252525;text-decoration: none;"><?php echo $dong_sanpham["tensanpham"]?></a></h6>
 										
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price"></h6>
+											<?php
+											if ( is_null( $dong_sanpham[ 'giamgia' ] ) ) {
+												echo "<h6 id='price'></h6>";
+												echo "<h6 id='sale'>" . $dong_sanpham[ 'giasp' ] . ".000đ</h6>";
 
+											} else {
+												echo "<h6 id='price'>" . $dong_sanpham[ 'giasp' ] . ".000đ</h6>";
+												echo "<h6 id='sale'>" . round( $dong_sanpham[ 'giasp' ] * ( $dong_sanpham[ 'giamgia' ] / 100 ) ) . ".000đ</h6>";
+
+											}
+											?>
 											<p>
-												<button class="button" type="submit">Mua</button>
+												<a href="chitietsanpham.php?id=<?php echo $dong_sanpham[ 'idsp' ]?>"><button class="button" type="submit">Mua</button></a>
 											</p>
 										</div>
 									</div>
 								</div>
+								<?php
+								}
+							?>
+								
 
-								<div class="column">
-									<div class="card">
-										<img src="imags/product5.jpg" alt="Mike" style="width: 100%">
-										<div class="container">
-											<h5 style="text-align: center;">
-																	<a href="#"
-																		style="color: #252525; text-decoration: none;">Jane
-																		Doe</a>
-																</h5>
-										
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-											<p>
-												<button class="button" type="submit">Mua</button>
-											</p>
-										</div>
-									</div>
-								</div>
 
-								<div class="column">
-									<div class="card">
-										<img src="imags/product2.jpg" alt="John" style="width: 100%">
-										<div class="container">
-											<h5 style="text-align: center;">
-																	<a href="#"
-																		style="color: #252525; text-decoration: none;">Jane
-																		Doe</a>
-																</h5>
-										
-											<h6 id="sale">250.000đ</h6>
-											<h6 id="price">250.000đ</h6>
-											<p>
-												<button class="button" type="submit">Mua</button>
-											</p>
-										</div>
-									</div>
-								</div>
+								
 							</div>
-							<div class="row">
+							<?php
+								echo '<div class="row">
 								<div class="col-sm-12 col-md-12 col-lg-12">
 									<div class="pagination">
 										<a href="#">Xem thêm>></a>
 
 									</div>
 								</div>
-							</div>
+							</div>'		;
+									}
+								else{
+									echo '<div class="contain">
+										<div class="col-sm-12 col-md-12 col-lg-12">
+										<p>Không có sản phẩm liên quan</p>
+										</div>
+									</div>';
+								}
+						?>
+							
+
 
 						</div>
 					</div>

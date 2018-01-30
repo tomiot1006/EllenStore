@@ -2,28 +2,14 @@ create database ellenstore;
 
 use ellenstore;
 
-create table taikhoan(
-	idtaikhoan int not null auto_increment primary key,
-    tentaikhoan varchar(40),
-    matkhau varchar(40)
-);
+
+
 
 create table admin(
-	id int not null auto_increment primary key,
-    hoten nvarchar(40),
-    sdt varchar(14),
-    email varchar(40),
-    diachi nvarchar(140)
+	username int not null primary key,
+	pass varchar(40)
 );
 
-create table nhanvien(
-	id int primary key not null auto_increment,
-    hoten nvarchar(40),
-    sdt varchar(14),
-    email varchar(40),
-    diachi nvarchar(140),
-    cmnd varchar(40)
-);
 
 create table danhmuc(
 	iddanhmuc int not null auto_increment primary key,
@@ -48,17 +34,6 @@ create table baiviet(
     dislike int
 );
 
-create table sanpham(
-	idsp int not null primary key auto_increment,
-    tensanpham nvarchar(40),
-    giasp varchar(10),
-    size varchar(2),
-    mausac nvarchar(10),
-    iddanhmuc int not null,
-    chitiet nvarchar(500),
-    foreign key (iddanhmuc) references danhmuc(iddanhmuc)
-);
-
 create table khachhang(
 	idkhach int not null auto_increment primary key,
     tenkhach nvarchar(40),
@@ -67,8 +42,27 @@ create table khachhang(
     diachi nvarchar(100),
     email varchar(40),
     gioitinh nvarchar(10),
-    cmnd varchar(40)
+    cmnd varchar(40),
+	tentaikhoan varchar(40),
+    matkhau varchar(40)
 );
+
+create table sanpham(
+	idsp int not null primary key auto_increment,
+    tensanpham nvarchar(40),
+    giasp int,
+	giamgia int,
+    size varchar(2),
+    mausac nvarchar(10),
+	hinhanh varchar(40),
+    video varchar(100),
+    iddanhmuc int not null,
+    chitiet nvarchar(500),
+	ngaynhap date,
+    foreign key (iddanhmuc) references danhmuc(iddanhmuc)
+);
+
+
 create table hoadon(
 	idhoadon int not null primary key auto_increment,
     ngaydathang date,
@@ -94,3 +88,21 @@ create table giohang(
     idsp int not null,
     foreign key (idsp) references sanpham(idsp)
 );
+
+INSERT into danhmuc(tendanhmuc) VALUE ("Áo");
+INSERT into danhmuc(tendanhmuc) VALUE ("Quần");
+INSERT into danhmuc(tendanhmuc) VALUE ("Váy");
+
+INSERT INTO `sanpham` (`idsp`, `tensanpham`, `giasp`, `giamgia`, `size`, `mausac`, `hinhanh`, `video`, `iddanhmuc`, `chitiet`, `ngaynhap`) 
+VALUES (NULL, 'Váy ngắn cá tính', 269, 30, 'M', 'Trắng', 'vayngan.jpg', 'https://www.youtube.com/watch?v=vIaH35-MLsk', '3', 'váy rất ngắn', '2018-01-29');
+
+INSERT INTO `sanpham` (`idsp`, `tensanpham`, `giasp`, `giamgia`, `size`, `mausac`, `hinhanh`, `video`, `iddanhmuc`, `chitiet`, `ngaynhap`) 
+VALUES (NULL, 'Quần sóc', 369, NULL, 'S', 'Xanh jean', 'quansoc.jpg', 'https://www.youtube.com/watch?v=psuRGfAaju4', '2', 'Là quần sóc. OK!', '2018-01-01');
+
+INSERT INTO `sanpham` (`idsp`, `tensanpham`, `giasp`, `giamgia`, `size`, `mausac`, `hinhanh`, `video`, `iddanhmuc`, `chitiet`, `ngaynhap`) 
+VALUES (NULL, 'Áo Avengers', 469, NULL, 'L', 'Nâu', 'aoavengers.jpg', 'https://www.youtube.com/watch?v=psuRGfAaju4', '1', 'áo avengers', '2018-01-10');
+
+INSERT INTO `sanpham` (`idsp`, `tensanpham`, `giasp`, `giamgia`, `size`, `mausac`, `hinhanh`, `video`, `iddanhmuc`, `chitiet`, `ngaynhap`) 
+VALUES (NULL, 'Áo rách', 569, NULL, 'M', 'no color', 'aorach.jpg', 'https://www.youtube.com/watch?v=JRfuAukYTKg', '1', 'áo rách', '2017-12-15');
+
+
